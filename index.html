@@ -61,5 +61,18 @@ margin: 20px 0;
 <button type="submit">Send Message</button>
 </form>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const formData = new FormData();
+    formData.append("message", "Someone found one of your things");
+
+    fetch("https://formsubmit.co/goddardduncan@gmail.com", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.ok ? console.log("Email sent successfully") : console.error("Error sending email"))
+    .catch(error => console.error("Error:", error));
+});
+</script>
 </body>
 </html>
